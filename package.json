@@ -1,0 +1,26 @@
+{
+  "name": "postgress-simple-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lina-jamal/postgress-simple-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lina-jamal/postgress-simple-app/issues"
+  },
+  "homepage": "https://github.com/lina-jamal/postgress-simple-app#readme",
+  "dependencies": {
+    "env2": "^2.2.2",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.6",
+    "pg": "^8.5.1"
+  }
+}

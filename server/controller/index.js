@@ -6,31 +6,58 @@ const {
   deleteStudentById,
 } = require("../database/queries");
 
-const students = [
-  {
-    first_name: "Ali",
-    second_name: "Ali",
-    location: "Gaza",
-  },
-  {
-    first_name: "Shireen",
-    second_name: "Shireen",
-    location: "Nazareth",
-  },
-];
+const getStudentsSubjects = (req, res, next) => {
+  getStudentsSubject()
+    .then(({ rows }) => {
+      console.log(rows);
+      return res.send({
+        data: rows,
+        statusCode: 200,
+      });
+    })
+
+    .catch((err) => next(err));
+};
 const getStudents = (req, res, next) => {
-  res.send({
-    data: students,
-    statusCode: 200,
-  });
+  getStudent()
+    .then(({ rows }) =>
+      res.send({
+        data: rows,
+        statusCode: 200,
+      })
+    )
+
+    .catch((err) => next(err));
 };
 
-const getSusbject = (req, res, next) => {};
-const addStudent = (req, res, next) => {};
+const getSusbject = (req, res, next) => {
+  getSubject()
+    .then(({ rows }) =>
+      res.send({
+        data: rows,
+        statusCode: 200,
+      })
+    )
 
-const deleteStudent = (req, res, next) => {};
+    .catch((err) => next(err));
+};
+const addStudent = (req, res, next) => {
+  const { firstName, secondName, location } = req.body;
+  addStudentQuery(firstName, secondName, location)
+    .then(() => res.redirect("/"))
+
+    .catch(next);
+};
+
+const deleteStudent = (req, res, next) => {
+  const { id } = req.params;
+  deleteStudentById(id)
+    .then(() => res.redirect("/"))
+    .catch(next);
+};
 
 module.exports = {
+  getStudentsSubjects,
   getSusbject,
   getStudents,
   addStudent,

@@ -1,12 +1,13 @@
-// const deleteStudent = (id) => {
-//   fetch(`/student/${id}`, {
-//     method: "delete",
-//   }).then(() => (window.location = "/index.html"));
-// };
+const deleteStudent = (id) => {
+  fetch(`/student/${id}`, {
+    method: "delete",
+  }).then(() => (window.location = "/index.html"));
+};
 
 fetch("/students")
   .then((res) => res.json())
   .then(({ data }) => {
+    console.log(data);
     const table = document.getElementById("students-table");
     data.forEach((student) => {
       const row = document.createElement("tr");
@@ -19,10 +20,13 @@ fetch("/students")
       const location = document.createElement("td");
       location.textContent = student.location;
       row.appendChild(location);
+      const class_name = document.createElement("td");
+      class_name.textContent = student.name;
+      row.appendChild(class_name);
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "delete";
       row.appendChild(deleteButton);
-      // deleteButton.addEventListener("click", () => deleteStudent(student.id));
+      deleteButton.addEventListener("click", () => deleteStudent(student.id));
       table.appendChild(row);
     });
   });

@@ -16,12 +16,19 @@
     </div>
   </nav>
 
-   <!-- <form class="form" action="/student" method="post">
-        <input type="text" name="firstName" value="" placeholder="first name">
-        <input type="text" name="secondName" value="" placeholder="secound name">
-        <input type="text" name="location" value="" placeholder="location">
-        <button type="submit" name="button">+ Add student</button>
-    </form> -->
+  <form class="form" action="/student" method="post">
+    <input type="text" name="firstName" value="" placeholder="first name">
+    <input type="text" name="secondName" value="" placeholder="secound name">
+    <input type="text" name="location" value="" placeholder="location">
+    <!-- <label for="cars">Choose a car:</label> -->
+
+    <select name="classId" id="class">
+      <option value="1">A</option>
+      <option value="2">B</option>
+      <option value="3">C</option>
+    </select>
+    <button type="submit" name="button">+ Add student</button>
+  </form>
   <div class="students-container">
 
     <table id="students-table">
@@ -29,6 +36,7 @@
         <th>First Name</th>
         <th>second Name</th>
         <th>location</th>
+        <th>class</th>
       </tr>
     </table>
   </div>

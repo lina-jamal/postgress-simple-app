@@ -42,8 +42,8 @@ const getSusbject = (req, res, next) => {
     .catch((err) => next(err));
 };
 const addStudent = (req, res, next) => {
-  const { firstName, secondName, location } = req.body;
-  addStudentQuery(firstName, secondName, location)
+  const { classId, firstName, secondName, location } = req.body;
+  addStudentQuery(classId, firstName, secondName, location)
     .then(() => res.redirect("/"))
 
     .catch(next);

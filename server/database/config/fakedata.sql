@@ -1,9 +1,9 @@
 
- INSERT INTO class (name) VALUES('A'),('b'),('c');
- INSERT INTO students (first_name,second_name,location) VALUES
-  ('lina','jamal','rafah'),
-  ('alaa','ahmed','gaza'),
-  ('sami','omer','khan-yunis')
+ INSERT INTO class (name) VALUES('A'),('B'),('C');
+ INSERT INTO students (class_id,first_name,second_name,location) VALUES
+  (1,'lina','jamal','rafah'),
+  (2,'alaa','ahmed','gaza'),
+  (2,'sami','omer','khan-yunis')
   RETURNING ID;
    INSERT INTO subjects (name) VALUES
   ('Math'),

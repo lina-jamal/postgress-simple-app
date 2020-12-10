@@ -8,7 +8,7 @@ CREATE TABLE class (
 );
 CREATE TABLE students (
   id serial PRIMARY KEY,
-  -- class_id        integer default 1  REFERENCES class(id) ON UPDATE CASCADE,
+  class_id        integer   REFERENCES class(id) ON UPDATE CASCADE,
   first_name       varchar(100)  NOT NULL,
   second_name      varchar(100)  NOT NULL,
   location         varchar(100) 

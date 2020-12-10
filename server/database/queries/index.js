@@ -2,7 +2,8 @@ const connection = require("../config/connection");
 
 const getStudent = () => {
   const sql = {
-    text: "SELECT * FROM students  ",
+    text:
+      " SELECT students.first_name ,students.second_name,students.location,class.name from students inner join class ON class.id = students.class_id  ",
   };
   return connection.query(sql);
 };
@@ -13,11 +14,11 @@ const getSubject = () => {
   return connection.query(sql);
 };
 
-const addStudentQuery = (firstName, secondName, location) => {
+const addStudentQuery = (classId, firstName, secondName, location) => {
   return connection.query({
     text:
-      "INSERT INTO students (first_name, second_name, location) values ($1, $2, $3) RETURNING *",
-    values: [firstName, secondName, location],
+      "INSERT INTO students (class_id,first_name, second_name, location) values ($1, $2, $3,$4) RETURNING *",
+    values: [classId, firstName, secondName, location],
   });
 };
 
@@ -33,7 +34,7 @@ const deleteStudentById = (id) => {
     text: "DELETE FROM students WHERE id =$1 RETURNING id",
     values: [id],
   };
-  console.log(id, 0);
+
   return connection.query(sql);
 };
 

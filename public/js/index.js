@@ -19,6 +19,10 @@ fetch("/students")
       const location = document.createElement("td");
       location.textContent = student.location;
       row.appendChild(location);
+      const class_name = document.createElement("td");
+      class_name.textContent = student.name;
+      row.appendChild(class_name);
+
       const deleteButton = document.createElement("button");
       deleteButton.textContent = "delete";
       row.appendChild(deleteButton);

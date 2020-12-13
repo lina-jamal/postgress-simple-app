@@ -1,8 +1,4 @@
-// const deleteStudent = (id) => {
-//   fetch(`/student/${id}`, {
-//     method: "delete",
-//   }).then(() => (window.location = "/index.html"));
-// };
+const deleteStudent = (id) => {};
 
 fetch("/students")
   .then((res) => res.json())
